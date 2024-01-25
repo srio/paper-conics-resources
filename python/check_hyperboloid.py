@@ -124,8 +124,8 @@ if __name__ == "__main__":
     p = 200
     q = 10
 
-    p = 10
-    q = 200
+    # p = 10
+    # q = 200
     c_p_1, c_p_2 = hyperboloid_check(p=p, q=q, theta=1e-3, do_assert=1)
 
 

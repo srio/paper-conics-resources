@@ -39,7 +39,7 @@ N = np.array((0, -2 * yc / a ** 2, -2 * zc / b ** 2))
 n = N / np.sqrt((N**2).sum())
 
 # angle between N and Z
-Theta = np.arcsin(n[1])
+Theta =  np.arcsin(n[1])
 
 # rotation matrix
 R_M = np.array([[1,0,0],
@@ -99,6 +99,7 @@ c_out_table_4 = [1,
 for i in range(10):
     print(i, c_out[i] / c_out[0], c_out_table_4[i], c_out_table_5[i])
 
+print(">>>>>", -np.arccos(n[2]), np.arcsin(n[1]))
 # # display coordinates
 # print(">>>> Xc, Yc, Zc: ", 0, yc, zc)
 # print(">>>> Xc, Yc, Zc: ", 0, yc, -p*q*np.sin(2*theta)/(2*c) )
