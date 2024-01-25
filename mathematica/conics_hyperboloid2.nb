@@ -1,0 +1,2285 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     85536,       2277]
+NotebookOptionsPosition[     83613,       2207]
+NotebookOutlinePosition[     83947,       2222]
+CellTagsIndexPosition[     83904,       2219]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"aa", " ", "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", " ", "1"}], " ", "/", " ", 
+       RowBox[{".016432", "^", "2"}]}], "\[IndentingNewLine]", "bb"}], " ", 
+     "=", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"1", " ", "/", " ", 
+        RowBox[{"3.5", "^", "2"}]}], "\[IndentingNewLine]", "ycen"}], " ", 
+      "=", " ", 
+      RowBox[{
+       RowBox[{"6.499928", "\[IndentingNewLine]", "zcen"}], " ", "=", " ", 
+       RowBox[{
+        RowBox[{"0.025714", "\[IndentingNewLine]", "ny"}], " ", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "0.005571"}], "\[IndentingNewLine]", "nz"}], " ", "=", 
+         "  ", "0.999984"}]}]}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"cmat", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"aa", ",", "0", " ", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "bb", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", " ", "0", ",", "aa"}], "}"}]}], "}"}], 
+   " "}]}]], "Input",
+ CellChangeTimes->{{3.87195494403224*^9, 3.871954975022043*^9}, {
+   3.871955009167292*^9, 3.8719550893879843`*^9}, 3.87195599476655*^9, {
+   3.8719605176016893`*^9, 3.87196051779077*^9}, 3.871961005396655*^9, {
+   3.871970151042899*^9, 3.871970219218896*^9}, {3.872050021252718*^9, 
+   3.872050075910993*^9}, {3.872051255161721*^9, 3.872051255769215*^9}, {
+   3.872051321931262*^9, 3.8720513282432547`*^9}, 3.872051370685781*^9, {
+   3.872053233832532*^9, 3.87205324159875*^9}, {3.872053489724579*^9, 
+   3.872053495033093*^9}, {3.8720535748942013`*^9, 3.8720535807910423`*^9}, {
+   3.872053692233748*^9, 3.872053692617447*^9}, {3.872054320946268*^9, 
+   3.872054447764471*^9}, {3.87205448087877*^9, 3.872054481798316*^9}, 
+   3.872054603311219*^9, {3.872237151000485*^9, 3.872237160353256*^9}, 
+   3.87223727708834*^9, {3.872237376199435*^9, 3.872237441476262*^9}, 
+   3.8722376618294992`*^9, {3.872238379061035*^9, 3.8722383879252253`*^9}, {
+   3.872238440813595*^9, 3.87223845738*^9}, 3.872238498597172*^9, 
+   3.8722386278818083`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"aa", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "bb", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "aa"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.871954948734323*^9, 3.871954976022172*^9}, {
+   3.8719550161920977`*^9, 3.871955090576234*^9}, 3.8719559953605213`*^9, 
+   3.871960518565609*^9, 3.8719605498757544`*^9, 3.871961015696855*^9, 
+   3.871961542232086*^9, 3.8719698409606447`*^9, 3.8719699400401363`*^9, 
+   3.871970037078628*^9, 3.871970219864835*^9, 3.872050069055523*^9, 
+   3.8720501455250883`*^9, 3.872051153494001*^9, 3.872051256684572*^9, 
+   3.872051329030463*^9, 3.872051366039261*^9, 3.872051607459339*^9, 
+   3.872052057266656*^9, 3.8720531604046803`*^9, {3.872053576921677*^9, 
+   3.872053581285862*^9}, {3.8720536350326357`*^9, 3.872053662971696*^9}, {
+   3.872053693207965*^9, 3.8720537019001513`*^9}, {3.872053933473764*^9, 
+   3.872053942866712*^9}, 3.872054051121879*^9, {3.872054451252852*^9, 
+   3.8720544861413517`*^9}, {3.872054626671562*^9, 3.8720546408361893`*^9}, 
+   3.8722366075172853`*^9, 3.872237451905609*^9, 3.872237673746883*^9, 
+   3.8722383986575623`*^9, 3.872238558102243*^9, 3.87223864155659*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"thetaeuler", " ", "=", 
+  RowBox[{"ArcSin", "[", "ny", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"rot", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"1", ",", " ", "0", ",", " ", "0"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", " ", 
+      RowBox[{"Cos", "[", "thetaeuler", "]"}], ",", " ", 
+      RowBox[{"-", 
+       RowBox[{"Sin", "[", "thetaeuler", "]"}]}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", " ", 
+      RowBox[{"Sin", "[", "thetaeuler", "]"}], ",", " ", 
+      RowBox[{"Cos", "[", "thetaeuler", "]"}]}], "}"}]}], "}"}], 
+  " "}]}], "Input",
+ CellChangeTimes->{{3.871955070352474*^9, 3.871955070353078*^9}, {
+  3.871955128819785*^9, 3.8719551852032537`*^9}, {3.8719614718226357`*^9, 
+  3.871961475654317*^9}, {3.871970241421218*^9, 3.871970257271886*^9}, {
+  3.8720501876007233`*^9, 3.872050294403409*^9}, {3.872050449603758*^9, 
+  3.872050453775372*^9}, {3.872051516136685*^9, 3.872051531136348*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArcSin", "[", "ny", "]"}]], "Output",
+ CellChangeTimes->{
+  3.871960556228944*^9, 3.8719610287355223`*^9, 3.871961479000008*^9, 
+   3.871961547702608*^9, 3.871969844408609*^9, 3.871969942849144*^9, 
+   3.871970042609335*^9, 3.87197025791817*^9, 3.872050253117285*^9, 
+   3.872050288173171*^9, 3.87205040678433*^9, 3.872050541993043*^9, 
+   3.872051457461732*^9, 3.872051534737062*^9, 3.872052058586376*^9, 
+   3.87205316066463*^9, {3.872053626158091*^9, 3.8720536631580667`*^9}, 
+   3.872053703413835*^9, 3.872053946688748*^9, 3.872054051516738*^9, {
+   3.872054456740219*^9, 3.872054486731387*^9}, {3.8720546271301517`*^9, 
+   3.872054641366737*^9}, 3.872236607707313*^9, 3.872237452532447*^9, 
+   3.872237673916727*^9, 3.8722383988331423`*^9, 3.8722385583030024`*^9, 
+   3.872238641733747*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     SqrtBox[
+      RowBox[{"1", "-", 
+       SuperscriptBox["ny", "2"]}]], ",", 
+     RowBox[{"-", "ny"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "ny", ",", 
+     SqrtBox[
+      RowBox[{"1", "-", 
+       SuperscriptBox["ny", "2"]}]]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.871960556228944*^9, 3.8719610287355223`*^9, 3.871961479000008*^9, 
+   3.871961547702608*^9, 3.871969844408609*^9, 3.871969942849144*^9, 
+   3.871970042609335*^9, 3.87197025791817*^9, 3.872050253117285*^9, 
+   3.872050288173171*^9, 3.87205040678433*^9, 3.872050541993043*^9, 
+   3.872051457461732*^9, 3.872051534737062*^9, 3.872052058586376*^9, 
+   3.87205316066463*^9, {3.872053626158091*^9, 3.8720536631580667`*^9}, 
+   3.872053703413835*^9, 3.872053946688748*^9, 3.872054051516738*^9, {
+   3.872054456740219*^9, 3.872054486731387*^9}, {3.8720546271301517`*^9, 
+   3.872054641366737*^9}, 3.872236607707313*^9, 3.872237452532447*^9, 
+   3.872237673916727*^9, 3.8722383988331423`*^9, 3.8722385583030024`*^9, 
+   3.872238641734729*^9}]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{{3.8719552382149477`*^9, 3.8719553325601053`*^9}, {
+   3.871955382927808*^9, 3.8719554456348763`*^9}, {3.871955513914694*^9, 
+   3.8719555222432127`*^9}, {3.871955603894659*^9, 3.871955625413144*^9}, {
+   3.871955660087963*^9, 3.871955665477708*^9}, 3.871955696103846*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FullSimplify", "[", "rot", "]"}], " ", "//", "MatrixForm", 
+  " "}]], "Input",
+ CellChangeTimes->{{3.87195556996418*^9, 3.871955595891799*^9}, {
+   3.871955632156754*^9, 3.8719556323492527`*^9}, 3.871956005126485*^9, {
+   3.871956986172904*^9, 3.8719569890047398`*^9}, {3.871957313925716*^9, 
+   3.871957316692428*^9}, {3.8719605761450872`*^9, 3.871960579936249*^9}, {
+   3.871961298883184*^9, 3.871961303210236*^9}, 3.8719613493010197`*^9, {
+   3.8719615807413*^9, 3.8719615810567427`*^9}, {3.87196996836689*^9, 
+   3.8719699687166147`*^9}, 3.8720505649265537`*^9}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"1", "0", "0"},
+     {"0", 
+      SqrtBox[
+       RowBox[{"1", "-", 
+        SuperscriptBox["ny", "2"]}]], 
+      RowBox[{"-", "ny"}]},
+     {"0", "ny", 
+      SqrtBox[
+       RowBox[{"1", "-", 
+        SuperscriptBox["ny", "2"]}]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.8719556931658792`*^9, 3.871956005931287*^9, 3.8719569904477997`*^9, 
+   3.8719573171266623`*^9, 3.8719605260946827`*^9, {3.87196057193318*^9, 
+   3.871960580524465*^9}, 3.871961035384675*^9, 3.871961563499754*^9, 
+   3.871961724827343*^9, 3.871969849730095*^9, {3.871969948499279*^9, 
+   3.871969969229631*^9}, 3.871970048226815*^9, 3.871970263135054*^9, 
+   3.872050567135459*^9, 3.872051552531618*^9, 3.872052058928996*^9, 
+   3.872053160825467*^9, {3.8720536355756283`*^9, 3.872053663293537*^9}, 
+   3.87205370383712*^9, 3.87205395956905*^9, 3.872054051733197*^9, {
+   3.872054457046596*^9, 3.8720544869057407`*^9}, {3.872054627321928*^9, 
+   3.8720546416316957`*^9}, 3.872236607904977*^9, 3.872237452663272*^9, 
+   3.872237674054723*^9, 3.872238399031032*^9, 3.872238558442545*^9, 
+   3.872238641925907*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rar", " ", "=", 
+   RowBox[{"FullSimplify", "[", " ", 
+    RowBox[{"rot", " ", ".", " ", 
+     RowBox[{"(", 
+      RowBox[{"cmat", " ", ".", " ", 
+       RowBox[{"Transpose", "[", "rot", "]"}]}], ")"}]}], " ", "]"}]}], " ", 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.871955706846756*^9, 3.87195572858391*^9}, {
+   3.8719560096543016`*^9, 3.8719560126461487`*^9}, 3.871969955699811*^9, 
+   3.872050588565818*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"aa", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"bb", "+", 
+      RowBox[{"aa", " ", 
+       SuperscriptBox["ny", "2"]}], "-", 
+      RowBox[{"bb", " ", 
+       SuperscriptBox["ny", "2"]}]}], ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "aa"}], "+", "bb"}], ")"}], " ", "ny", " ", 
+      SqrtBox[
+       RowBox[{"1", "-", 
+        SuperscriptBox["ny", "2"]}]]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "aa"}], "+", "bb"}], ")"}], " ", "ny", " ", 
+      SqrtBox[
+       RowBox[{"1", "-", 
+        SuperscriptBox["ny", "2"]}]]}], ",", 
+     RowBox[{"aa", "-", 
+      RowBox[{"aa", " ", 
+       SuperscriptBox["ny", "2"]}], "+", 
+      RowBox[{"bb", " ", 
+       SuperscriptBox["ny", "2"]}]}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.871955729375677*^9, 3.871956013044174*^9, 3.8719619278845463`*^9, 
+   3.871969852605996*^9, 3.871969956960218*^9, 3.871970056139244*^9, 
+   3.871970286195902*^9, 3.872050591470173*^9, 3.872051560598302*^9, 
+   3.872051621195261*^9, 3.872052059957274*^9, 3.872053160940016*^9, {
+   3.87205363569497*^9, 3.8720536633856707`*^9}, 3.872053704891663*^9, {
+   3.872053965037915*^9, 3.8720539881366873`*^9}, 3.8720540518228703`*^9, {
+   3.872054457233654*^9, 3.872054487027341*^9}, {3.8720546274679403`*^9, 
+   3.872054641840761*^9}, 3.87223660800496*^9, 3.872237452738583*^9, 
+   3.872237674159458*^9, 3.872238399100861*^9, 3.872238558518314*^9, 
+   3.8722386420248404`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"rar", " ", "//", " ", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.871956057775755*^9, 3.871956073255414*^9}, {
+  3.871956136961657*^9, 3.8719561398887167`*^9}, {3.871970386472742*^9, 
+  3.871970394687213*^9}, {3.87205061593316*^9, 3.8720506282567863`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"aa", "0", "0"},
+     {"0", 
+      RowBox[{"bb", "+", 
+       RowBox[{"aa", " ", 
+        SuperscriptBox["ny", "2"]}], "-", 
+       RowBox[{"bb", " ", 
+        SuperscriptBox["ny", "2"]}]}], 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "aa"}], "+", "bb"}], ")"}], " ", "ny", " ", 
+       SqrtBox[
+        RowBox[{"1", "-", 
+         SuperscriptBox["ny", "2"]}]]}]},
+     {"0", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "aa"}], "+", "bb"}], ")"}], " ", "ny", " ", 
+       SqrtBox[
+        RowBox[{"1", "-", 
+         SuperscriptBox["ny", "2"]}]]}], 
+      RowBox[{"aa", "-", 
+       RowBox[{"aa", " ", 
+        SuperscriptBox["ny", "2"]}], "+", 
+       RowBox[{"bb", " ", 
+        SuperscriptBox["ny", "2"]}]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.872050630337021*^9, 3.87205156608984*^9, 3.872051627233548*^9, 
+   3.8720517741584*^9, 3.872052060062269*^9, 3.872053161092401*^9, {
+   3.872053635786538*^9, 3.872053663478544*^9}, 3.872053705190544*^9, {
+   3.8720539687838507`*^9, 3.8720539945294456`*^9}, 3.8720540519105864`*^9, {
+   3.8720544573554564`*^9, 3.8720544871591682`*^9}, {3.872054627622669*^9, 
+   3.872054642256572*^9}, 3.872236608082221*^9, 3.872237452815131*^9, 
+   3.872237674230938*^9, 3.872238399170237*^9, 3.872238558595702*^9, 
+   3.8722386420987663`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"cvec", "=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"c0", " ", "=", " ", 
+  RowBox[{"-", "1"}]}]}], "Input",
+ CellChangeTimes->{{3.871956057775755*^9, 3.871956073255414*^9}, {
+  3.871956136961657*^9, 3.8719561398887167`*^9}, {3.871970386472742*^9, 
+  3.871970394687213*^9}, {3.87205061593316*^9, 3.8720506282567863`*^9}, {
+  3.872050662120566*^9, 3.872050669502664*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "0", ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{{3.871970387161214*^9, 3.8719703951402683`*^9}, 
+   3.872050670070136*^9, 3.8720516436960382`*^9, 3.8720520601467323`*^9, 
+   3.872053161102992*^9, {3.8720536359778023`*^9, 3.872053663576695*^9}, 
+   3.872053705202612*^9, {3.872053973984332*^9, 3.872053977159408*^9}, 
+   3.8720540519238243`*^9, {3.872054457572946*^9, 3.8720544872929792`*^9}, {
+   3.8720546277784653`*^9, 3.872054642470888*^9}, 3.8722366081586313`*^9, 
+   3.872237452888242*^9, 3.872237674300056*^9, 3.872238399242381*^9, 
+   3.8722385586691427`*^9, 3.8722386421555033`*^9}],
+
+Cell[BoxData[
+ RowBox[{"-", "1"}]], "Output",
+ CellChangeTimes->{{3.871970387161214*^9, 3.8719703951402683`*^9}, 
+   3.872050670070136*^9, 3.8720516436960382`*^9, 3.8720520601467323`*^9, 
+   3.872053161102992*^9, {3.8720536359778023`*^9, 3.872053663576695*^9}, 
+   3.872053705202612*^9, {3.872053973984332*^9, 3.872053977159408*^9}, 
+   3.8720540519238243`*^9, {3.872054457572946*^9, 3.8720544872929792`*^9}, {
+   3.8720546277784653`*^9, 3.872054642470888*^9}, 3.8722366081586313`*^9, 
+   3.872237452888242*^9, 3.872237674300056*^9, 3.872238399242381*^9, 
+   3.8722385586691427`*^9, 3.872238642156631*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"center", " ", "=", " ", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "ycen", ",", "zcen"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.871970295141213*^9, 3.87197031070999*^9}, {
+  3.872050679413041*^9, 3.872050692387804*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "ycen", ",", "zcen"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.871970311252408*^9, 3.872050693044695*^9, 3.872051649477992*^9, 
+   3.872052060230006*^9, 3.872053161229253*^9, {3.87205363608049*^9, 
+   3.8720536637168713`*^9}, 3.872053705271974*^9, 3.872054052049233*^9, {
+   3.87205445774074*^9, 3.872054487461731*^9}, {3.872054627954145*^9, 
+   3.8720546426295033`*^9}, 3.8722366082362957`*^9, 3.872237452963842*^9, 
+   3.872237674369293*^9, 3.872238399315661*^9, 3.8722385587453547`*^9, 
+   3.872238642178397*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"t", " ", "=", " ", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"-", " ", 
+    RowBox[{"rot", " ", ".", " ", "center"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.871956079430187*^9, 3.871956096951529*^9}, {
+  3.871970342935034*^9, 3.871970350029743*^9}, {3.8720507041962*^9, 
+  3.872050730448256*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      SqrtBox[
+       RowBox[{"1", "-", 
+        SuperscriptBox["ny", "2"]}]]}], " ", "ycen"}], "+", 
+    RowBox[{"ny", " ", "zcen"}]}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "ny"}], " ", "ycen"}], "-", 
+    RowBox[{
+     SqrtBox[
+      RowBox[{"1", "-", 
+       SuperscriptBox["ny", "2"]}]], " ", "zcen"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.8719619651546097`*^9, 3.871969860370893*^9, 3.87197007374214*^9, 
+   3.8719703503804502`*^9, 3.8719703994614153`*^9, {3.8720507059068203`*^9, 
+   3.8720507348914137`*^9}, 3.872051654274811*^9, 3.8720520661078863`*^9, 
+   3.8720531613869257`*^9, {3.872053636180963*^9, 3.872053663819313*^9}, 
+   3.872053709984354*^9, 3.872054017843154*^9, 3.872054052308693*^9, {
+   3.872054457907444*^9, 3.872054487606839*^9}, {3.872054628141197*^9, 
+   3.872054642784172*^9}, 3.8722366083880796`*^9, 3.8722374531081133`*^9, 
+   3.872237674521666*^9, 3.8722383993851023`*^9, 3.8722385588192997`*^9, 
+   3.872238642326962*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.871956125192705*^9, 3.871956150672089*^9}, {
+   3.871956308860757*^9, 3.8719563098354816`*^9}, 3.8719619763379717`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{
+   RowBox[{"FullSimplify", "[", 
+    RowBox[{
+     RowBox[{"rot", " ", ".", " ", "cvec"}], " ", "-", " ", 
+     RowBox[{"2", " ", 
+      RowBox[{"rar", " ", ".", " ", "t"}]}]}], "]"}], " ", "//", "MatrixForm",
+    " "}]}]], "Input",
+ CellChangeTimes->{{3.8719563128463984`*^9, 3.871956461256502*^9}, {
+  3.8719628158540573`*^9, 3.871962819309844*^9}, {3.87196294903153*^9, 
+  3.87196294955331*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {"0"},
+      {
+       RowBox[{
+        RowBox[{"2", " ", "bb", " ", 
+         SqrtBox[
+          RowBox[{"1", "-", 
+           SuperscriptBox["ny", "2"]}]], " ", "ycen"}], "-", 
+        RowBox[{"2", " ", "aa", " ", "ny", " ", "zcen"}]}]},
+      {
+       RowBox[{"2", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"bb", " ", "ny", " ", "ycen"}], "+", 
+          RowBox[{"aa", " ", 
+           SqrtBox[
+            RowBox[{"1", "-", 
+             SuperscriptBox["ny", "2"]}]], " ", "zcen"}]}], ")"}]}]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+        "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.871961983105983*^9, 3.871962819806587*^9, 3.8719629516586103`*^9, 
+   3.871969805617833*^9, 3.87197007951898*^9, 3.871970357129796*^9, 
+   3.871970403470895*^9, 3.872050766568801*^9, 3.872051685783784*^9, 
+   3.872052125915866*^9, 3.872053161549988*^9, {3.8720536363595047`*^9, 
+   3.872053663951344*^9}, 3.8720537405099688`*^9, {3.872054025383601*^9, 
+   3.8720540529450274`*^9}, {3.872054458154516*^9, 3.8720544878091507`*^9}, {
+   3.872054628433522*^9, 3.8720546432671127`*^9}, 3.8722366084603662`*^9, 
+   3.872237453241707*^9, 3.872237674676023*^9, 3.8722383995109453`*^9, 
+   3.872238558951693*^9, 3.872238642481769*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{"c0", " ", "+", "  ", 
+   RowBox[{"t", " ", ".", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"rar", " ", ".", " ", "t"}], " ", "-", " ", 
+      RowBox[{"rot", " ", ".", " ", "cvec"}]}], ")"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.871956571715913*^9, 3.871956679445367*^9}, {
+  3.8719704439137983`*^9, 3.8719704731122417`*^9}, {3.872050791374851*^9, 
+  3.8720507963342047`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "1"}], "+", 
+  RowBox[{"bb", " ", 
+   SuperscriptBox["ycen", "2"]}], "+", 
+  RowBox[{"aa", " ", 
+   SuperscriptBox["zcen", "2"]}]}]], "Output",
+ CellChangeTimes->{{3.871956578330715*^9, 3.8719566799915867`*^9}, 
+   3.871962984366995*^9, 3.871970088643298*^9, {3.871970446794465*^9, 
+   3.871970473804875*^9}, 3.872050799059103*^9, 3.8720517006433563`*^9, 
+   3.8720521505498257`*^9, 3.8720531616713533`*^9, {3.8720536364699593`*^9, 
+   3.8720536640484657`*^9}, 3.872053757319867*^9, 3.8720540532207623`*^9, {
+   3.8720544583201227`*^9, 3.872054487977992*^9}, {3.872054628582762*^9, 
+   3.872054643410141*^9}, 3.872236608553533*^9, 3.8722374533159447`*^9, 
+   3.8722376747162533`*^9, 3.872238399581256*^9, 3.872238559028401*^9, 
+   3.8722386425224133`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"cpmat", " ", "=", " ", "rar"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cpvec", " ", "=", " ", 
+   RowBox[{"FullSimplify", "[", 
+    RowBox[{
+     RowBox[{"rot", " ", ".", " ", "cvec"}], " ", "-", " ", 
+     RowBox[{"2", " ", 
+      RowBox[{"rar", " ", ".", " ", "t"}]}]}], " ", "]"}]}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{"cp0", " ", "=", " ", 
+  RowBox[{"FullSimplify", "[", " ", 
+   RowBox[{"c0", " ", "+", " ", 
+    RowBox[{"t", " ", ".", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"rar", " ", ".", " ", "t"}], " ", "-", " ", 
+       RowBox[{"rot", " ", ".", " ", "cvec"}]}], ")"}]}]}], "]"}]}]}], "Input",\
+
+ CellChangeTimes->{{3.872050875481427*^9, 3.872050876472073*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"aa", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"bb", "+", 
+      RowBox[{"aa", " ", 
+       SuperscriptBox["ny", "2"]}], "-", 
+      RowBox[{"bb", " ", 
+       SuperscriptBox["ny", "2"]}]}], ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "aa"}], "+", "bb"}], ")"}], " ", "ny", " ", 
+      SqrtBox[
+       RowBox[{"1", "-", 
+        SuperscriptBox["ny", "2"]}]]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "aa"}], "+", "bb"}], ")"}], " ", "ny", " ", 
+      SqrtBox[
+       RowBox[{"1", "-", 
+        SuperscriptBox["ny", "2"]}]]}], ",", 
+     RowBox[{"aa", "-", 
+      RowBox[{"aa", " ", 
+       SuperscriptBox["ny", "2"]}], "+", 
+      RowBox[{"bb", " ", 
+       SuperscriptBox["ny", "2"]}]}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.872050824189149*^9, 3.872050877077427*^9, 3.8720517090764637`*^9, 
+   3.8720517864238167`*^9, 3.872052150660898*^9, 3.872053161684299*^9, {
+   3.872053636580326*^9, 3.872053664146516*^9}, 3.87205375742694*^9, 
+   3.8720540539337387`*^9, {3.872054458531789*^9, 3.872054488129867*^9}, {
+   3.872054628788248*^9, 3.8720546436004457`*^9}, 3.8722366087940617`*^9, 
+   3.872237453387244*^9, 3.872237674788328*^9, 3.872238399651527*^9, 
+   3.872238559103385*^9, 3.872238642596746*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", 
+   RowBox[{
+    RowBox[{"2", " ", "bb", " ", 
+     SqrtBox[
+      RowBox[{"1", "-", 
+       SuperscriptBox["ny", "2"]}]], " ", "ycen"}], "-", 
+    RowBox[{"2", " ", "aa", " ", "ny", " ", "zcen"}]}], ",", 
+   RowBox[{"2", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"bb", " ", "ny", " ", "ycen"}], "+", 
+      RowBox[{"aa", " ", 
+       SqrtBox[
+        RowBox[{"1", "-", 
+         SuperscriptBox["ny", "2"]}]], " ", "zcen"}]}], ")"}]}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.872050824189149*^9, 3.872050877077427*^9, 3.8720517090764637`*^9, 
+   3.8720517864238167`*^9, 3.872052150660898*^9, 3.872053161684299*^9, {
+   3.872053636580326*^9, 3.872053664146516*^9}, 3.87205375742694*^9, 
+   3.8720540539337387`*^9, {3.872054458531789*^9, 3.872054488129867*^9}, {
+   3.872054628788248*^9, 3.8720546436004457`*^9}, 3.8722366087940617`*^9, 
+   3.872237453387244*^9, 3.872237674788328*^9, 3.872238399651527*^9, 
+   3.872238559103385*^9, 3.87223864259799*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "1"}], "+", 
+  RowBox[{"bb", " ", 
+   SuperscriptBox["ycen", "2"]}], "+", 
+  RowBox[{"aa", " ", 
+   SuperscriptBox["zcen", "2"]}]}]], "Output",
+ CellChangeTimes->{
+  3.872050824189149*^9, 3.872050877077427*^9, 3.8720517090764637`*^9, 
+   3.8720517864238167`*^9, 3.872052150660898*^9, 3.872053161684299*^9, {
+   3.872053636580326*^9, 3.872053664146516*^9}, 3.87205375742694*^9, 
+   3.8720540539337387`*^9, {3.872054458531789*^9, 3.872054488129867*^9}, {
+   3.872054628788248*^9, 3.8720546436004457`*^9}, 3.8722366087940617`*^9, 
+   3.872237453387244*^9, 3.872237674788328*^9, 3.872238399651527*^9, 
+   3.872238559103385*^9, 3.8722386425988913`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"cpmat", "[", 
+    RowBox[{"[", 
+     RowBox[{"1", ",", "1"}], "]"}], "]"}], ",", 
+   RowBox[{"cpmat", "[", 
+    RowBox[{"[", 
+     RowBox[{"2", ",", "2"}], "]"}], "]"}], ",", 
+   RowBox[{"cpmat", "[", 
+    RowBox[{"[", 
+     RowBox[{"3", ",", "3"}], "]"}], "]"}], ",", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"cpmat", "[", 
+      RowBox[{"[", 
+       RowBox[{"1", ",", "2"}], "]"}], "]"}], "+", 
+     RowBox[{"cpmat", "[", 
+      RowBox[{"[", 
+       RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ")"}], ",", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"cpmat", "[", 
+      RowBox[{"[", 
+       RowBox[{"2", ",", "3"}], "]"}], "]"}], "+", 
+     RowBox[{"cpmat", "[", 
+      RowBox[{"[", 
+       RowBox[{"3", ",", "2"}], "]"}], "]"}]}], ")"}], ",", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"cpmat", "[", 
+      RowBox[{"[", 
+       RowBox[{"1", ",", "3"}], "]"}], "]"}], "+", 
+     RowBox[{"cpmat", "[", 
+      RowBox[{"[", 
+       RowBox[{"3", ",", "1"}], "]"}], "]"}]}], ")"}], ",", 
+   RowBox[{"cpvec", "[", 
+    RowBox[{"[", "1", "]"}], "]"}], ",", 
+   RowBox[{"cpvec", "[", 
+    RowBox[{"[", "2", "]"}], "]"}], ",", 
+   RowBox[{"cpvec", "[", 
+    RowBox[{"[", "3", "]"}], "]"}], ",", "cp0"}], "}"}]], "Input",
+ CellChangeTimes->{{3.87205188924839*^9, 3.872051895751671*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"aa", ",", 
+   RowBox[{"bb", "+", 
+    RowBox[{"aa", " ", 
+     SuperscriptBox["ny", "2"]}], "-", 
+    RowBox[{"bb", " ", 
+     SuperscriptBox["ny", "2"]}]}], ",", 
+   RowBox[{"aa", "-", 
+    RowBox[{"aa", " ", 
+     SuperscriptBox["ny", "2"]}], "+", 
+    RowBox[{"bb", " ", 
+     SuperscriptBox["ny", "2"]}]}], ",", "0", ",", 
+   RowBox[{"2", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "aa"}], "+", "bb"}], ")"}], " ", "ny", " ", 
+    SqrtBox[
+     RowBox[{"1", "-", 
+      SuperscriptBox["ny", "2"]}]]}], ",", "0", ",", "0", ",", 
+   RowBox[{
+    RowBox[{"2", " ", "bb", " ", 
+     SqrtBox[
+      RowBox[{"1", "-", 
+       SuperscriptBox["ny", "2"]}]], " ", "ycen"}], "-", 
+    RowBox[{"2", " ", "aa", " ", "ny", " ", "zcen"}]}], ",", 
+   RowBox[{"2", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"bb", " ", "ny", " ", "ycen"}], "+", 
+      RowBox[{"aa", " ", 
+       SqrtBox[
+        RowBox[{"1", "-", 
+         SuperscriptBox["ny", "2"]}]], " ", "zcen"}]}], ")"}]}], ",", 
+   RowBox[{
+    RowBox[{"-", "1"}], "+", 
+    RowBox[{"bb", " ", 
+     SuperscriptBox["ycen", "2"]}], "+", 
+    RowBox[{"aa", " ", 
+     SuperscriptBox["zcen", "2"]}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.872055711730608*^9, 3.8722366088232183`*^9, 
+  3.872237453463016*^9, 3.8722376749800863`*^9, 3.872238399722906*^9, 
+  3.872238559186122*^9, 3.872238642785102*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  NamespaceBox["LinguisticAssistant",
+   DynamicModuleBox[{Typeset`query$$ = 
+    "note that c_9=0 because of the ellipse equation, and also c_7=0; the \
+result is identical to the SHADOW equations.", Typeset`boxes$$ = "None", 
+    Typeset`allassumptions$$ = {}, Typeset`assumptions$$ = {}, 
+    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+    "Online" -> True, "Allowed" -> True, "$TimedOut" -> 
+     5.001625`7.150656120607402, "Messages" -> {}}}, 
+    DynamicBox[ToBoxes[
+      AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+       Dynamic[Typeset`query$$], 
+       Dynamic[Typeset`boxes$$], 
+       Dynamic[Typeset`allassumptions$$], 
+       Dynamic[Typeset`assumptions$$], 
+       Dynamic[Typeset`open$$], 
+       Dynamic[Typeset`querystate$$]], StandardForm],
+     ImageSizeCache->{525., {31., 19.}},
+     TrackedSymbols:>{
+      Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+       Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+    DynamicModuleValues:>{},
+    UndoTrackedVariables:>{Typeset`open$$}],
+   BaseStyle->{"Deploy"},
+   DeleteWithContents->True,
+   Editable->False,
+   SelectWithContents->True], 
+  RowBox[{"{", 
+   RowBox[{"aa", ",", 
+    RowBox[{"bb", "+", 
+     RowBox[{"aa", " ", 
+      SuperscriptBox["ny", "2"]}], "-", 
+     RowBox[{"bb", " ", 
+      SuperscriptBox["ny", "2"]}]}], ",", 
+    RowBox[{"aa", "-", 
+     RowBox[{"aa", " ", 
+      SuperscriptBox["ny", "2"]}], "+", 
+     RowBox[{"bb", " ", 
+      SuperscriptBox["ny", "2"]}]}], ",", "0", ",", 
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "aa"}], "+", "bb"}], ")"}], " ", "ny", " ", 
+     SqrtBox[
+      RowBox[{"1", "-", 
+       SuperscriptBox["ny", "2"]}]]}], ",", "0", ",", "0", ",", 
+    RowBox[{
+     RowBox[{"2", " ", "bb", " ", 
+      SqrtBox[
+       RowBox[{"1", "-", 
+        SuperscriptBox["ny", "2"]}]], " ", "ycen"}], "-", 
+     RowBox[{"2", " ", "aa", " ", "ny", " ", "zcen"}]}], ",", 
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"bb", " ", "ny", " ", "ycen"}], "+", 
+       RowBox[{"aa", " ", 
+        SqrtBox[
+         RowBox[{"1", "-", 
+          SuperscriptBox["ny", "2"]}]], " ", "zcen"}]}], ")"}]}], ",", 
+    RowBox[{
+     RowBox[{"-", "1"}], "+", 
+     RowBox[{"bb", " ", 
+      SuperscriptBox["ycen", "2"]}], "+", 
+     RowBox[{"aa", " ", 
+      SuperscriptBox["zcen", "2"]}]}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.872055641179573*^9, 3.872055641253586*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"aa", " ", 
+    InterpretationBox[
+     RowBox[{
+      TagBox["Failure",
+       "SummaryHead"], "[", 
+      DynamicModuleBox[{Typeset`open$$ = False}, 
+       PanelBox[
+        PaneSelectorBox[{False->GridBox[{
+           {
+            PaneBox[
+             ButtonBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquarePlusIconMedium"],
+               ImageSizeCache->{12., {0., 12.}}],
+              Appearance->None,
+              ButtonFunction:>(Typeset`open$$ = True),
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             Alignment->{Center, Center},
+             
+             ImageSize->
+              Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            FrameBox[
+             StyleBox["\<\"\[WarningSign]\"\>", "Message",
+              StripOnInput->False,
+              FontSize->35],
+             ContentPadding->False,
+             FrameMargins->{{0, 0}, {0, 0}},
+             FrameStyle->None,
+             StripOnInput->False], GridBox[{
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"MessageTemplate\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"Parse timed out.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Query\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                
+                TagBox["\<\"note that c_9=0 because of the ellipse equation, \
+and also c_7=0; the result is identical to the SHADOW equations.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Tag\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"WolframAlphaParseTimedOut\"\>",
+                 "SummaryItem"]}]}
+             },
+             AutoDelete->False,
+             
+             BaseStyle->{
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False},
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+          },
+          AutoDelete->False,
+          BaselinePosition->{1, 1},
+          GridBoxAlignment->{"Rows" -> {{Top}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+         GridBox[{
+           {
+            PaneBox[
+             ButtonBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquareMinusIconMedium"]],
+              Appearance->None,
+              ButtonFunction:>(Typeset`open$$ = False),
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             Alignment->{Center, Center},
+             
+             ImageSize->
+              Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            FrameBox[
+             StyleBox["\<\"\[WarningSign]\"\>", "Message",
+              StripOnInput->False,
+              FontSize->35],
+             ContentPadding->False,
+             FrameMargins->{{0, 0}, {0, 0}},
+             FrameStyle->None,
+             StripOnInput->False], GridBox[{
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"MessageTemplate\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"Parse timed out.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Query\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                
+                TagBox["\<\"note that c_9=0 because of the ellipse equation, \
+and also c_7=0; the result is identical to the SHADOW equations.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Tag\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"WolframAlphaParseTimedOut\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Online\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["True",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Allowed\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["True",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"$TimedOut\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["5.001625`7.150656120607402",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Messages\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox[
+                 RowBox[{"{", "}"}],
+                 "SummaryItem"]}]}
+             },
+             AutoDelete->False,
+             
+             BaseStyle->{
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False},
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+          },
+          AutoDelete->False,
+          BaselinePosition->{1, 1},
+          GridBoxAlignment->{"Rows" -> {{Top}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+         Typeset`open$$],
+         ImageSize->Automatic],
+        BaselinePosition->Baseline],
+       DynamicModuleValues:>{}], "]"}],
+     Failure["WolframAlphaParseTimedOut", 
+      Association[
+      "MessageTemplate" -> "Parse timed out.", "Query" -> 
+       "note that c_9=0 because of the ellipse equation, and also c_7=0; the \
+result is identical to the SHADOW equations.", "Online" -> True, "Allowed" -> 
+       True, "$TimedOut" -> 5.001625`7.150656120607402, "Messages" -> {}]],
+     Editable->False,
+     SelectWithContents->True,
+     Selectable->False]}], ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"bb", "+", 
+      RowBox[{"aa", " ", 
+       SuperscriptBox["ny", "2"]}], "-", 
+      RowBox[{"bb", " ", 
+       SuperscriptBox["ny", "2"]}]}], ")"}], " ", 
+    InterpretationBox[
+     RowBox[{
+      TagBox["Failure",
+       "SummaryHead"], "[", 
+      DynamicModuleBox[{Typeset`open$$ = False}, 
+       PanelBox[
+        PaneSelectorBox[{False->GridBox[{
+           {
+            PaneBox[
+             ButtonBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquarePlusIconMedium"],
+               ImageSizeCache->{12., {0., 12.}}],
+              Appearance->None,
+              ButtonFunction:>(Typeset`open$$ = True),
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             Alignment->{Center, Center},
+             
+             ImageSize->
+              Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            FrameBox[
+             StyleBox["\<\"\[WarningSign]\"\>", "Message",
+              StripOnInput->False,
+              FontSize->35],
+             ContentPadding->False,
+             FrameMargins->{{0, 0}, {0, 0}},
+             FrameStyle->None,
+             StripOnInput->False], GridBox[{
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"MessageTemplate\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"Parse timed out.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Query\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                
+                TagBox["\<\"note that c_9=0 because of the ellipse equation, \
+and also c_7=0; the result is identical to the SHADOW equations.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Tag\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"WolframAlphaParseTimedOut\"\>",
+                 "SummaryItem"]}]}
+             },
+             AutoDelete->False,
+             
+             BaseStyle->{
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False},
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+          },
+          AutoDelete->False,
+          BaselinePosition->{1, 1},
+          GridBoxAlignment->{"Rows" -> {{Top}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+         GridBox[{
+           {
+            PaneBox[
+             ButtonBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquareMinusIconMedium"]],
+              Appearance->None,
+              ButtonFunction:>(Typeset`open$$ = False),
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             Alignment->{Center, Center},
+             
+             ImageSize->
+              Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            FrameBox[
+             StyleBox["\<\"\[WarningSign]\"\>", "Message",
+              StripOnInput->False,
+              FontSize->35],
+             ContentPadding->False,
+             FrameMargins->{{0, 0}, {0, 0}},
+             FrameStyle->None,
+             StripOnInput->False], GridBox[{
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"MessageTemplate\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"Parse timed out.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Query\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                
+                TagBox["\<\"note that c_9=0 because of the ellipse equation, \
+and also c_7=0; the result is identical to the SHADOW equations.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Tag\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"WolframAlphaParseTimedOut\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Online\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["True",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Allowed\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["True",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"$TimedOut\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["5.001625`7.150656120607402",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Messages\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox[
+                 RowBox[{"{", "}"}],
+                 "SummaryItem"]}]}
+             },
+             AutoDelete->False,
+             
+             BaseStyle->{
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False},
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+          },
+          AutoDelete->False,
+          BaselinePosition->{1, 1},
+          GridBoxAlignment->{"Rows" -> {{Top}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+         Typeset`open$$],
+         ImageSize->Automatic],
+        BaselinePosition->Baseline],
+       DynamicModuleValues:>{}], "]"}],
+     Failure["WolframAlphaParseTimedOut", 
+      Association[
+      "MessageTemplate" -> "Parse timed out.", "Query" -> 
+       "note that c_9=0 because of the ellipse equation, and also c_7=0; the \
+result is identical to the SHADOW equations.", "Online" -> True, "Allowed" -> 
+       True, "$TimedOut" -> 5.001625`7.150656120607402, "Messages" -> {}]],
+     Editable->False,
+     SelectWithContents->True,
+     Selectable->False]}], ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"aa", "-", 
+      RowBox[{"aa", " ", 
+       SuperscriptBox["ny", "2"]}], "+", 
+      RowBox[{"bb", " ", 
+       SuperscriptBox["ny", "2"]}]}], ")"}], " ", 
+    InterpretationBox[
+     RowBox[{
+      TagBox["Failure",
+       "SummaryHead"], "[", 
+      DynamicModuleBox[{Typeset`open$$ = False}, 
+       PanelBox[
+        PaneSelectorBox[{False->GridBox[{
+           {
+            PaneBox[
+             ButtonBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquarePlusIconMedium"],
+               ImageSizeCache->{12., {0., 12.}}],
+              Appearance->None,
+              ButtonFunction:>(Typeset`open$$ = True),
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             Alignment->{Center, Center},
+             
+             ImageSize->
+              Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            FrameBox[
+             StyleBox["\<\"\[WarningSign]\"\>", "Message",
+              StripOnInput->False,
+              FontSize->35],
+             ContentPadding->False,
+             FrameMargins->{{0, 0}, {0, 0}},
+             FrameStyle->None,
+             StripOnInput->False], GridBox[{
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"MessageTemplate\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"Parse timed out.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Query\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                
+                TagBox["\<\"note that c_9=0 because of the ellipse equation, \
+and also c_7=0; the result is identical to the SHADOW equations.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Tag\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"WolframAlphaParseTimedOut\"\>",
+                 "SummaryItem"]}]}
+             },
+             AutoDelete->False,
+             
+             BaseStyle->{
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False},
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+          },
+          AutoDelete->False,
+          BaselinePosition->{1, 1},
+          GridBoxAlignment->{"Rows" -> {{Top}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+         GridBox[{
+           {
+            PaneBox[
+             ButtonBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquareMinusIconMedium"]],
+              Appearance->None,
+              ButtonFunction:>(Typeset`open$$ = False),
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             Alignment->{Center, Center},
+             
+             ImageSize->
+              Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            FrameBox[
+             StyleBox["\<\"\[WarningSign]\"\>", "Message",
+              StripOnInput->False,
+              FontSize->35],
+             ContentPadding->False,
+             FrameMargins->{{0, 0}, {0, 0}},
+             FrameStyle->None,
+             StripOnInput->False], GridBox[{
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"MessageTemplate\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"Parse timed out.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Query\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                
+                TagBox["\<\"note that c_9=0 because of the ellipse equation, \
+and also c_7=0; the result is identical to the SHADOW equations.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Tag\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"WolframAlphaParseTimedOut\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Online\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["True",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Allowed\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["True",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"$TimedOut\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["5.001625`7.150656120607402",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Messages\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox[
+                 RowBox[{"{", "}"}],
+                 "SummaryItem"]}]}
+             },
+             AutoDelete->False,
+             
+             BaseStyle->{
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False},
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+          },
+          AutoDelete->False,
+          BaselinePosition->{1, 1},
+          GridBoxAlignment->{"Rows" -> {{Top}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+         Typeset`open$$],
+         ImageSize->Automatic],
+        BaselinePosition->Baseline],
+       DynamicModuleValues:>{}], "]"}],
+     Failure["WolframAlphaParseTimedOut", 
+      Association[
+      "MessageTemplate" -> "Parse timed out.", "Query" -> 
+       "note that c_9=0 because of the ellipse equation, and also c_7=0; the \
+result is identical to the SHADOW equations.", "Online" -> True, "Allowed" -> 
+       True, "$TimedOut" -> 5.001625`7.150656120607402, "Messages" -> {}]],
+     Editable->False,
+     SelectWithContents->True,
+     Selectable->False]}], ",", "0", ",", 
+   RowBox[{"2", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "aa"}], "+", "bb"}], ")"}], " ", "ny", " ", 
+    SqrtBox[
+     RowBox[{"1", "-", 
+      SuperscriptBox["ny", "2"]}]], " ", 
+    InterpretationBox[
+     RowBox[{
+      TagBox["Failure",
+       "SummaryHead"], "[", 
+      DynamicModuleBox[{Typeset`open$$ = False}, 
+       PanelBox[
+        PaneSelectorBox[{False->GridBox[{
+           {
+            PaneBox[
+             ButtonBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquarePlusIconMedium"],
+               ImageSizeCache->{12., {0., 12.}}],
+              Appearance->None,
+              ButtonFunction:>(Typeset`open$$ = True),
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             Alignment->{Center, Center},
+             
+             ImageSize->
+              Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            FrameBox[
+             StyleBox["\<\"\[WarningSign]\"\>", "Message",
+              StripOnInput->False,
+              FontSize->35],
+             ContentPadding->False,
+             FrameMargins->{{0, 0}, {0, 0}},
+             FrameStyle->None,
+             StripOnInput->False], GridBox[{
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"MessageTemplate\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"Parse timed out.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Query\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                
+                TagBox["\<\"note that c_9=0 because of the ellipse equation, \
+and also c_7=0; the result is identical to the SHADOW equations.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Tag\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"WolframAlphaParseTimedOut\"\>",
+                 "SummaryItem"]}]}
+             },
+             AutoDelete->False,
+             
+             BaseStyle->{
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False},
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+          },
+          AutoDelete->False,
+          BaselinePosition->{1, 1},
+          GridBoxAlignment->{"Rows" -> {{Top}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+         GridBox[{
+           {
+            PaneBox[
+             ButtonBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquareMinusIconMedium"]],
+              Appearance->None,
+              ButtonFunction:>(Typeset`open$$ = False),
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             Alignment->{Center, Center},
+             
+             ImageSize->
+              Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            FrameBox[
+             StyleBox["\<\"\[WarningSign]\"\>", "Message",
+              StripOnInput->False,
+              FontSize->35],
+             ContentPadding->False,
+             FrameMargins->{{0, 0}, {0, 0}},
+             FrameStyle->None,
+             StripOnInput->False], GridBox[{
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"MessageTemplate\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"Parse timed out.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Query\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                
+                TagBox["\<\"note that c_9=0 because of the ellipse equation, \
+and also c_7=0; the result is identical to the SHADOW equations.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Tag\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"WolframAlphaParseTimedOut\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Online\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["True",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Allowed\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["True",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"$TimedOut\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["5.001625`7.150656120607402",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Messages\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox[
+                 RowBox[{"{", "}"}],
+                 "SummaryItem"]}]}
+             },
+             AutoDelete->False,
+             
+             BaseStyle->{
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False},
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+          },
+          AutoDelete->False,
+          BaselinePosition->{1, 1},
+          GridBoxAlignment->{"Rows" -> {{Top}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+         Typeset`open$$],
+         ImageSize->Automatic],
+        BaselinePosition->Baseline],
+       DynamicModuleValues:>{}], "]"}],
+     Failure["WolframAlphaParseTimedOut", 
+      Association[
+      "MessageTemplate" -> "Parse timed out.", "Query" -> 
+       "note that c_9=0 because of the ellipse equation, and also c_7=0; the \
+result is identical to the SHADOW equations.", "Online" -> True, "Allowed" -> 
+       True, "$TimedOut" -> 5.001625`7.150656120607402, "Messages" -> {}]],
+     Editable->False,
+     SelectWithContents->True,
+     Selectable->False]}], ",", "0", ",", "0", ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", "bb", " ", 
+       SqrtBox[
+        RowBox[{"1", "-", 
+         SuperscriptBox["ny", "2"]}]], " ", "ycen"}], "-", 
+      RowBox[{"2", " ", "aa", " ", "ny", " ", "zcen"}]}], ")"}], " ", 
+    InterpretationBox[
+     RowBox[{
+      TagBox["Failure",
+       "SummaryHead"], "[", 
+      DynamicModuleBox[{Typeset`open$$ = False}, 
+       PanelBox[
+        PaneSelectorBox[{False->GridBox[{
+           {
+            PaneBox[
+             ButtonBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquarePlusIconMedium"],
+               ImageSizeCache->{12., {0., 12.}}],
+              Appearance->None,
+              ButtonFunction:>(Typeset`open$$ = True),
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             Alignment->{Center, Center},
+             
+             ImageSize->
+              Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            FrameBox[
+             StyleBox["\<\"\[WarningSign]\"\>", "Message",
+              StripOnInput->False,
+              FontSize->35],
+             ContentPadding->False,
+             FrameMargins->{{0, 0}, {0, 0}},
+             FrameStyle->None,
+             StripOnInput->False], GridBox[{
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"MessageTemplate\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"Parse timed out.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Query\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                
+                TagBox["\<\"note that c_9=0 because of the ellipse equation, \
+and also c_7=0; the result is identical to the SHADOW equations.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Tag\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"WolframAlphaParseTimedOut\"\>",
+                 "SummaryItem"]}]}
+             },
+             AutoDelete->False,
+             
+             BaseStyle->{
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False},
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+          },
+          AutoDelete->False,
+          BaselinePosition->{1, 1},
+          GridBoxAlignment->{"Rows" -> {{Top}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+         GridBox[{
+           {
+            PaneBox[
+             ButtonBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquareMinusIconMedium"]],
+              Appearance->None,
+              ButtonFunction:>(Typeset`open$$ = False),
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             Alignment->{Center, Center},
+             
+             ImageSize->
+              Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            FrameBox[
+             StyleBox["\<\"\[WarningSign]\"\>", "Message",
+              StripOnInput->False,
+              FontSize->35],
+             ContentPadding->False,
+             FrameMargins->{{0, 0}, {0, 0}},
+             FrameStyle->None,
+             StripOnInput->False], GridBox[{
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"MessageTemplate\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"Parse timed out.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Query\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                
+                TagBox["\<\"note that c_9=0 because of the ellipse equation, \
+and also c_7=0; the result is identical to the SHADOW equations.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Tag\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"WolframAlphaParseTimedOut\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Online\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["True",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Allowed\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["True",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"$TimedOut\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["5.001625`7.150656120607402",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Messages\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox[
+                 RowBox[{"{", "}"}],
+                 "SummaryItem"]}]}
+             },
+             AutoDelete->False,
+             
+             BaseStyle->{
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False},
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+          },
+          AutoDelete->False,
+          BaselinePosition->{1, 1},
+          GridBoxAlignment->{"Rows" -> {{Top}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+         Typeset`open$$],
+         ImageSize->Automatic],
+        BaselinePosition->Baseline],
+       DynamicModuleValues:>{}], "]"}],
+     Failure["WolframAlphaParseTimedOut", 
+      Association[
+      "MessageTemplate" -> "Parse timed out.", "Query" -> 
+       "note that c_9=0 because of the ellipse equation, and also c_7=0; the \
+result is identical to the SHADOW equations.", "Online" -> True, "Allowed" -> 
+       True, "$TimedOut" -> 5.001625`7.150656120607402, "Messages" -> {}]],
+     Editable->False,
+     SelectWithContents->True,
+     Selectable->False]}], ",", 
+   RowBox[{"2", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"bb", " ", "ny", " ", "ycen"}], "+", 
+      RowBox[{"aa", " ", 
+       SqrtBox[
+        RowBox[{"1", "-", 
+         SuperscriptBox["ny", "2"]}]], " ", "zcen"}]}], ")"}], " ", 
+    InterpretationBox[
+     RowBox[{
+      TagBox["Failure",
+       "SummaryHead"], "[", 
+      DynamicModuleBox[{Typeset`open$$ = False}, 
+       PanelBox[
+        PaneSelectorBox[{False->GridBox[{
+           {
+            PaneBox[
+             ButtonBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquarePlusIconMedium"],
+               ImageSizeCache->{12., {0., 12.}}],
+              Appearance->None,
+              ButtonFunction:>(Typeset`open$$ = True),
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             Alignment->{Center, Center},
+             
+             ImageSize->
+              Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            FrameBox[
+             StyleBox["\<\"\[WarningSign]\"\>", "Message",
+              StripOnInput->False,
+              FontSize->35],
+             ContentPadding->False,
+             FrameMargins->{{0, 0}, {0, 0}},
+             FrameStyle->None,
+             StripOnInput->False], GridBox[{
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"MessageTemplate\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"Parse timed out.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Query\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                
+                TagBox["\<\"note that c_9=0 because of the ellipse equation, \
+and also c_7=0; the result is identical to the SHADOW equations.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Tag\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"WolframAlphaParseTimedOut\"\>",
+                 "SummaryItem"]}]}
+             },
+             AutoDelete->False,
+             
+             BaseStyle->{
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False},
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+          },
+          AutoDelete->False,
+          BaselinePosition->{1, 1},
+          GridBoxAlignment->{"Rows" -> {{Top}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+         GridBox[{
+           {
+            PaneBox[
+             ButtonBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquareMinusIconMedium"]],
+              Appearance->None,
+              ButtonFunction:>(Typeset`open$$ = False),
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             Alignment->{Center, Center},
+             
+             ImageSize->
+              Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            FrameBox[
+             StyleBox["\<\"\[WarningSign]\"\>", "Message",
+              StripOnInput->False,
+              FontSize->35],
+             ContentPadding->False,
+             FrameMargins->{{0, 0}, {0, 0}},
+             FrameStyle->None,
+             StripOnInput->False], GridBox[{
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"MessageTemplate\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"Parse timed out.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Query\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                
+                TagBox["\<\"note that c_9=0 because of the ellipse equation, \
+and also c_7=0; the result is identical to the SHADOW equations.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Tag\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"WolframAlphaParseTimedOut\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Online\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["True",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Allowed\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["True",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"$TimedOut\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["5.001625`7.150656120607402",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Messages\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox[
+                 RowBox[{"{", "}"}],
+                 "SummaryItem"]}]}
+             },
+             AutoDelete->False,
+             
+             BaseStyle->{
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False},
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+          },
+          AutoDelete->False,
+          BaselinePosition->{1, 1},
+          GridBoxAlignment->{"Rows" -> {{Top}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+         Typeset`open$$],
+         ImageSize->Automatic],
+        BaselinePosition->Baseline],
+       DynamicModuleValues:>{}], "]"}],
+     Failure["WolframAlphaParseTimedOut", 
+      Association[
+      "MessageTemplate" -> "Parse timed out.", "Query" -> 
+       "note that c_9=0 because of the ellipse equation, and also c_7=0; the \
+result is identical to the SHADOW equations.", "Online" -> True, "Allowed" -> 
+       True, "$TimedOut" -> 5.001625`7.150656120607402, "Messages" -> {}]],
+     Editable->False,
+     SelectWithContents->True,
+     Selectable->False]}], ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      RowBox[{"bb", " ", 
+       SuperscriptBox["ycen", "2"]}], "+", 
+      RowBox[{"aa", " ", 
+       SuperscriptBox["zcen", "2"]}]}], ")"}], " ", 
+    InterpretationBox[
+     RowBox[{
+      TagBox["Failure",
+       "SummaryHead"], "[", 
+      DynamicModuleBox[{Typeset`open$$ = False}, 
+       PanelBox[
+        PaneSelectorBox[{False->GridBox[{
+           {
+            PaneBox[
+             ButtonBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquarePlusIconMedium"],
+               ImageSizeCache->{12., {0., 12.}}],
+              Appearance->None,
+              ButtonFunction:>(Typeset`open$$ = True),
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             Alignment->{Center, Center},
+             
+             ImageSize->
+              Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            FrameBox[
+             StyleBox["\<\"\[WarningSign]\"\>", "Message",
+              StripOnInput->False,
+              FontSize->35],
+             ContentPadding->False,
+             FrameMargins->{{0, 0}, {0, 0}},
+             FrameStyle->None,
+             StripOnInput->False], GridBox[{
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"MessageTemplate\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"Parse timed out.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Query\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                
+                TagBox["\<\"note that c_9=0 because of the ellipse equation, \
+and also c_7=0; the result is identical to the SHADOW equations.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Tag\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"WolframAlphaParseTimedOut\"\>",
+                 "SummaryItem"]}]}
+             },
+             AutoDelete->False,
+             
+             BaseStyle->{
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False},
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+          },
+          AutoDelete->False,
+          BaselinePosition->{1, 1},
+          GridBoxAlignment->{"Rows" -> {{Top}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+         GridBox[{
+           {
+            PaneBox[
+             ButtonBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquareMinusIconMedium"]],
+              Appearance->None,
+              ButtonFunction:>(Typeset`open$$ = False),
+              Evaluator->Automatic,
+              Method->"Preemptive"],
+             Alignment->{Center, Center},
+             
+             ImageSize->
+              Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            FrameBox[
+             StyleBox["\<\"\[WarningSign]\"\>", "Message",
+              StripOnInput->False,
+              FontSize->35],
+             ContentPadding->False,
+             FrameMargins->{{0, 0}, {0, 0}},
+             FrameStyle->None,
+             StripOnInput->False], GridBox[{
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"MessageTemplate\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"Parse timed out.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Query\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                
+                TagBox["\<\"note that c_9=0 because of the ellipse equation, \
+and also c_7=0; the result is identical to the SHADOW equations.\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Tag\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["\<\"WolframAlphaParseTimedOut\"\>",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Online\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["True",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Allowed\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["True",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"$TimedOut\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox["5.001625`7.150656120607402",
+                 "SummaryItem"]}]},
+              {
+               RowBox[{
+                TagBox[
+                 TemplateBox[{"\"Messages\"","\": \""},
+                  "RowDefault"],
+                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                TagBox[
+                 RowBox[{"{", "}"}],
+                 "SummaryItem"]}]}
+             },
+             AutoDelete->False,
+             
+             BaseStyle->{
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False},
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Top}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+          },
+          AutoDelete->False,
+          BaselinePosition->{1, 1},
+          GridBoxAlignment->{"Rows" -> {{Top}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+         Typeset`open$$],
+         ImageSize->Automatic],
+        BaselinePosition->Baseline],
+       DynamicModuleValues:>{}], "]"}],
+     Failure["WolframAlphaParseTimedOut", 
+      Association[
+      "MessageTemplate" -> "Parse timed out.", "Query" -> 
+       "note that c_9=0 because of the ellipse equation, and also c_7=0; the \
+result is identical to the SHADOW equations.", "Online" -> True, "Allowed" -> 
+       True, "$TimedOut" -> 5.001625`7.150656120607402, "Messages" -> {}]],
+     Editable->False,
+     SelectWithContents->True,
+     Selectable->False]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.872237453837202*^9, 3.8722376766445503`*^9, 
+  3.872238401269743*^9, 3.872238560808881*^9, 3.872238644214568*^9}]
+}, Open  ]]
+},
+WindowSize->{1386, 633},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.4 for Linux x86 (64-bit) (April 11, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 2123, 47, 165, "Input"],
+Cell[2706, 71, 1278, 22, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4021, 98, 984, 22, 55, "Input"],
+Cell[5008, 122, 819, 13, 32, "Output"],
+Cell[5830, 137, 1185, 27, 50, "Output"]
+}, Open  ]],
+Cell[7030, 167, 337, 4, 55, "Input"],
+Cell[CellGroupData[{
+Cell[7392, 175, 601, 10, 32, "Input"],
+Cell[7996, 187, 1627, 38, 106, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9660, 230, 463, 11, 55, "Input"],
+Cell[10126, 243, 1646, 43, 50, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11809, 291, 284, 4, 32, "Input"],
+Cell[12096, 297, 1886, 51, 106, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14019, 353, 452, 9, 55, "Input"],
+Cell[14474, 364, 645, 10, 32, "Output"],
+Cell[15122, 376, 605, 9, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15764, 390, 241, 5, 32, "Input"],
+Cell[16008, 397, 566, 10, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16611, 412, 326, 7, 32, "Input"],
+Cell[16940, 421, 1068, 26, 50, "Output"]
+}, Open  ]],
+Cell[18023, 450, 168, 2, 32, "Input"],
+Cell[CellGroupData[{
+Cell[18216, 456, 438, 11, 32, "Input"],
+Cell[18657, 469, 1777, 44, 115, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20471, 518, 446, 10, 32, "Input"],
+Cell[20920, 530, 794, 15, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21751, 550, 728, 19, 77, "Input"],
+Cell[22482, 571, 1455, 40, 50, "Output"],
+Cell[23940, 613, 1018, 25, 59, "Output"],
+Cell[24961, 640, 686, 14, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25684, 659, 1332, 42, 55, "Input"],
+Cell[27019, 703, 1410, 42, 101, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28466, 750, 2509, 67, 155, "Input"],
+Cell[30978, 819, 52619, 1385, 594, "Output"]
+}, Open  ]]
+}
+]
+*)
+
